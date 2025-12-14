@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
 // controllers/listings.js
 router.get('/:robotId/edit', async (req, res) => {
   try {
-    const currentRobot = await Robot.findById(req.params.robotId);
+    const currentRobot = await Robot.findById(req.params.robotId).populate('owner');
     res.render('robots/edit.ejs', {
       robot: currentRobot,
     });
@@ -83,10 +83,10 @@ router.get('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const listing = await Listing.findById(req.params.id);
-    if (listing.owner.equals(req.session.user._id)) {
-      await listing.deleteOne();
-      res.redirect('/listings');
+    const robot = await Robot.findById(req.params.id);
+    if (robot.owner.equals(req.session.user._id)) {
+      await robot.deleteOne();
+      res.redirect('/robots');
     } else {
       res.send("You don't have permission to do that.");
     }

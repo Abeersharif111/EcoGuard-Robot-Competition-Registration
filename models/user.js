@@ -16,6 +16,7 @@ const userSchema = mongoose.Schema({
   age:{
     type: Number,
     required: true,
+    min:5
   } ,
 
   schoolName:{

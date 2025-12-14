@@ -24,7 +24,7 @@ router.get('/sign-out', async (req, res) => {
 router.post('/sign-up', async (req, res) => {
   try {
     console.log(req.body)
-    const { username, password, confirmPassword } = req.body;
+    const { username, age, schoolName , password, confirmPassword } = req.body;
     // make sure the user does not exist
     const userInDatabase = await User.findOne({ username });
 
