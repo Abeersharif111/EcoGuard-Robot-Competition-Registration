@@ -1,0 +1,31 @@
+<!-- views/robots/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Robot <%= robot.robotName %> owned by <%= robot.owner.username%></title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>The robot <%= robot.robotName %> owned by <%= robot.owner.username %></h1>
+    <h2>Details</h2>
+    <p>Mobility: <%= robot.mobility %></p>
+    <p>Discription: <%= robot.discription %></p>
+    <p>Robot Image: <%= robot.robotImage %></p>
+    
+<!-- views/robots/show.ejs -->
+
+<% if (robot.owner._id.equals(user._id)) { %>
+<p>You own this!</p>
+<a href="/robots/<%= robot._id %>/edit">Edit this robot</a>
+
+<form action="/robots/<%= robot._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete this robot</button>
+
+
+</form>
+<%}%>
+  </body>
+</html>

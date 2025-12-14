@@ -1,0 +1,44 @@
+<!-- views/Robots/edit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit <%= robot.robotName %></title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Edit a Robot!</h1>
+
+    <!-- views/Robots/edit.ejs -->
+    <p>Editing the robot <%= robot.robotName %> owned by <%= robot.owner.username %></p>
+<form action="/robots/<%= robot._id %>?_method=PUT" method="POST">
+  <label for="robotName">Robot name:</label>
+  <input
+    type="text"
+    name="robotName"
+    id="robotName"
+    value="<%= robot.robotName %>"
+  />
+  <label for="mobility">Mobility:</label>
+  <input type="text" name="mobility" id="mobility" value="<%= robot.mobility %>" />
+  <label for="discription">Discription:</label>
+  <input
+    type="textarea"
+    name="discription"
+    id="discription"
+    value="<%= robot.discription %>"
+  />
+  <label for="robotImage">Robot Image:</label>
+  <input
+    type="text" 
+    name="robotImage"
+    id="robotImage"
+    value="<%= robot.robotImage %>"
+  />
+  <button type="submit">Edit Robot</button>
+</form>
+
+  </body>
+</html>

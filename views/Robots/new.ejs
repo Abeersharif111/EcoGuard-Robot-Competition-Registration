@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Robot</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add New Robot</h1>
+
+    <form action="/robots" method="POST">
+      <label for="robotName">Robot Name:</label>
+      <input type="text" name="robotName" id="robotName" required/>
+
+      <label for="mobility">Mobility:</label>
+      <select name="mobility" id="mobility" >
+        <option value="Fixed">Fixed</option>
+        <option value="Mobile">Mobile</option>
+       </select> 
+      <label for="discription">Discription:</label>
+      <input type="textarea" name="discription" id="discription" />
+
+      <label for="robotImage">Robot Image:</label>
+      <input type="text" name="robotImage" id="robotImage" />
+
+      <button type="submit">Add Robot</button>
+    </form>
+  </body>
+</html>

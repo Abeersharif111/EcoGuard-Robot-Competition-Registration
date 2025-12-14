@@ -1,0 +1,32 @@
+{
+  "name": "ecoguard-robot-competition-registration",
+  "version": "1.0.0",
+  "description": "The mocup\r ![alt text](.C:\\Users\\Asus\\code\\ga\\projects\\EcoGuard-Robot-Competition-Registration\\assests\\project2-mocuop.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abeersharif111/EcoGuard-Robot-Competition-Registration.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Abeersharif111/EcoGuard-Robot-Competition-Registration/issues"
+  },
+  "homepage": "https://github.com/Abeersharif111/EcoGuard-Robot-Competition-Registration#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-session": "^1.18.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.0.1",
+    "morgan": "^1.10.1"
+  }
+}
