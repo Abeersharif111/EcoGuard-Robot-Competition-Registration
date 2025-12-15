@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title></title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h2>Details</h2>
+    
+    
+<!-- views/robots/show.ejs -->
+<!-- display all his own robots-->
+<ul>
+      <% robots.forEach((robot) => { %>
+      <li>
+        <p>Robot Name : <%= robot.robotName %> </p>
+        <p>Mobility: <%= robot.mobility %></p>
+        <p>Discription: <%= robot.discription %></p>
+        <p>Robot Image: </p>
+        <img src=<%= robot.robotImage %> alt="robot image">
+        <a href="/robots/<%= robot._id %>/edit">Edit this robot</a>
+        <form action="/robots/<%= robot._id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete this robot</button>
+      </li>
+      <% }) %>
+    </ul>
+    <!--Edit and delet his robots-->
+
+
+</form>
+
+  </body>
+</html>

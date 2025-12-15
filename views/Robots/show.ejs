@@ -5,6 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>The Robot <%= robot.robotName %> owned by <%= robot.owner.username%></title>
   </head>
   <body>
@@ -28,5 +29,31 @@
 
 </form>
 <%}%>
+<!-- Favorite Section -->
+<div >
+          <p>Favorited by <%= robot.favoritedByUser.length %> people.</p>
+
+          <% if (userHasFavorited) { %>
+          <p>You've favorited this robot!</p>
+
+          <form
+            action="/robots/<%= robot._id %>/favorited-by/<%= user._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit">Unfavorite it!</button>
+          </form>
+
+          <% } else { %>
+          <p>You haven't favorited this robot.</p>
+
+          <form
+            action="/robots/<%= robot._id %>/favorited-by/<%= user._id %>"
+            method="POST"
+          >
+            <button type="submit">Favorite it!</button>
+          </form>
+
+          <% } %>
+        </div>
   </body>
 </html>

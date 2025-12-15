@@ -16,6 +16,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+//the route for yourRobts
+router.get('/yourRobots', async (req, res) => {
+  try {
+    const robots = await Robot.find({ owner: req.session.user._id }).populate('owner');
+    console.log(robots);    
+    res.render('robots/yourRobots.ejs', { robots });
+  } catch (error) {
+    console.error(error);
+    res.redirect('/robots');
+  }
+});
+
 // Create
 router.get('/new', async (req, res) => {
   try {
@@ -67,11 +79,39 @@ router.put('/:robotId', async (req, res) => {
   }
 });
 
+
+// the winner route should be placed before the show route to avoid conflicts
+//find robot with most favorites
+
+router.get('/winner', async (req, res) => {
+  try {
+    const robots = await Robot.find().populate('owner');
+    let topRobot = null;
+    let maxFavorites = 0;
+
+    robots.forEach((robot) => { 
+        const favoriteCount = robot.favoritedByUser.length; 
+        if (favoriteCount > maxFavorites) {
+            maxFavorites = favoriteCount;
+            topRobot = robot;
+        }
+    });
+
+    res.render('robots/winner.ejs', { topRobot, maxFavorites });
+  } catch (error) {
+    console.error(error);
+    res.redirect('/robots');
+  }
+});
+
 // Show
 router.get('/:id', async (req, res) => {
   try {
     const robot = await Robot.findById(req.params.id).populate('owner');
-    res.render('robots/show.ejs', { robot });
+    const userHasFavorited = robot.favoritedByUser.some((user)=>   //for favoriting button
+    user.equals(req.session.user._id)
+  )
+    res.render('robots/show.ejs', { robot , userHasFavorited});
   } catch (error) {
     console.error(error);
     res.redirect('/robots');
@@ -95,6 +135,36 @@ router.delete('/:id', async (req, res) => {
     res.redirect('/');
   }
 });
+
+//this is for favoriting a robot
+router.post('/:robotId/favorited-by/:userId', async (req, res) => {
+  await Robot.findByIdAndUpdate(req.params.robotId, {
+    $push: { favoritedByUser: req.params.userId }
+  })
+  res.redirect(`/robots/${req.params.robotId}`)
+})
+//this is for unfavoriting a robot
+router.delete('/:robotId/favorited-by/:userId', async (req, res) => {
+  await Robot.findByIdAndUpdate(req.params.robotId, {
+    $pull: { favoritedByUser: req.params.userId }
+  })
+  res.redirect(`/robots/${req.params.robotId}`)
+})
+
+
+//the route for yourRoots
+// router.get('/yourRobots', async (req, res) => {
+//   try {
+//     const robots = await Robot.find({owner: req.session.user._id}).populate('owner');
+//     console.log(robots);
+
+//     res.render('robots/yourRobots.ejs', { robots });
+//   } catch (error) {
+//     console.error(error);
+//     // res.redirect('/robots');
+//   }
+// });
+
 
 
 

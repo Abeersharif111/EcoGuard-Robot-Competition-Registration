@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>All Robots</title>
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Here's all the Robots</h1>
-    <a href="/robots/new">Add New Robot</a>
-
+    
+    <p> Hello <%= user.username%></p>
     <ul>
       <% robots.forEach((robot) => { %>
       <li>
@@ -18,5 +19,7 @@
       </li>
       <% }) %>
     </ul>
+<a href="/robots/winner">See the Top Robot</a>
+    
   </body>
 </html>

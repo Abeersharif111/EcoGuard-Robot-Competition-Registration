@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>winner</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>  
+    <h1>Congratulations to the Winning Robot!</h1>
+    <p>The top robot until now is: <strong><%= topRobot.robotName %> Gain <%= maxFavorites %> Favorites </strong></p>
+    <p>Owned by: <strong><%= topRobot.owner.username %></strong></p>
+    <p>Mobility: <%= topRobot.mobility %></p>      
+    <p>Description: <%= topRobot.discription %></p>
+    <p>Robot Image:</p>
+    <img src="<%= topRobot.robotImage %>" alt="Robot Image">
+
+</body>
+</html>
