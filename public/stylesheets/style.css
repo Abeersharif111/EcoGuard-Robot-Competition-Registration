@@ -4,9 +4,6 @@
   box-sizing: border-box;
 }
 
-/* public/stylesheets/style.css */
-
-/* public/stylesheets/style.css */
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -15,4 +12,322 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: #a5f8e0;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 20px 50px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #1e90ff;
+} 
+
+/* Styles for Landing Page */
+.index-body {
+  background-image: url('../background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100vw;
+  color: white;
+}
+
+.main-header {
+  font-weight: bold;
+  color: white;
+  font-size: 3em;
+  margin: -160px 20px 0 20px;
+}
+
+.subheader {
+  margin: 0 20px 0 20px;
+  font-size: 1.4em;
+}
+
+.index-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.auth-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 80px 0 0;
+  height: 100%;
+}
+
+.signup-link,
+.signin-link {
+  text-decoration: none;
+  font-size: 1.5em;
+  padding: 8px 0;
+  border-radius: 25px;
+  width: 10em;
+  text-align: center;
+}
+
+.signup-link {
+  background-color: #ce4866;
+  color: white;
+  margin: 0 0 20px 0;
+}
+
+.signup-link:hover {
+  background-color: #ff5378;
+}
+
+.signin-link {
+  background-color: #f6e7e7;
+  color: #1c2e5b;
+  margin: 20px 0 0 0;
+}
+
+.signin-link:hover {
+  background-color: #ffffff;
+}
+
+.redtext {
+  color: #ce4866;
+  font-weight: bold;
+  font-size: 1.4em;
+  margin: 10px 30px;
+  text-align: center;
+}
+
+.bluetext {
+  color: #235be8;
+  font-weight: bold;
+}
+ /* Styles for Robots Index Page all robots */
+.index-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  width: 90%;
+}
+
+.index-header > h1 {
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+.index-header > a {
+  padding: 6px 12px;
+  border: 1px solid gray;
+  text-decoration: none;
+  color: black;
+}
+
+.index-header > a:hover {
+  background-color: black;
+  color: white;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 70px;
+}
+
+.card-container > a {
+  padding: 12px 25px;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 5px 30px 50px;
+  color: black;
+}
+
+.card-container > a:hover {
+  background-color: black;
+  color: white;
+}
+
+a > h4 {
+  font-weight: normal;
+  font-size: 1em;
+}
+
+/* Styles for Your Robots Page */
+.robots-container {
+  display: flex;
+  gap:20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+
+/*indivisual robot card*/
+.robot-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 350px;
+  text-align: center;
+ /*display: flex;*/
+  flex-direction: column;
+  /*align-items: center;*/
+  /*max-width: 90%;*/
+}
+.robot-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.robotName {
+  font-size: 1.5em;
+  margin: 10px 0;
+  color:#0c6d4e;
+}
+.robot-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.robot-actions a,
+.robot-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  background-color: #155d3e;
+  cursor: pointer;
+}
+.robot-actions a:hover,
+.robot-actions button:hover {
+  background-color: #394867;
+}
+
+/* Styles for New Robot Form Page */
+.form-page {
+  min-width: flex;
+  display: flex ;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.robot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.robot-form label {
+  font-weight: 600;
+}
+.robot-form input,
+.robot-form select,
+.robot-form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.robot-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #155d3e;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: bold;
+}
+.robot-form button:hover {
+  background-color: #394867;
+  opacity: 0.9;
+}
+
+/* style the wiiner page */
+.winner-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+.winner-card {
+ 
+  width: 300px;
+ 
+}
+.favorites {
+  color:#f5a623;
+font-weight: bold;
+margin: 8px 0;
+}
+
+.favorites-section {
+  margin-top: 20px;
+  /* padding: 15px;
+  border-top: 1px solid #ccc;
+  width: 300px;
+  text-align: center; */
+}
+
+/* style for the animated robot on sign in and sign up page */
+.page-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+  gap:10px;
+  padding: 20px;
+ 
+}
+
+.cont{
+  flex:1;
+  display: flex;
+  min-width: 300px;
+  justify-content: center;
+  height: 400px;
+  align-items: center;
+  border-radius: 12px;
+
+}
+
+.right-cont{
+  text-align: center;
+}
+
+.left-cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100% ;
+  border-radius: 50px;
+
 }

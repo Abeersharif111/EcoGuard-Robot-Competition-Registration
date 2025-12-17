@@ -8,29 +8,30 @@
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h2>Details</h2>
-    
-    
+
+    <h2>My Robots</h2>
 <!-- views/robots/show.ejs -->
 <!-- display all his own robots-->
-<ul>
+ <div class="robots-container">
+    
+  <!-- remove the list and replace it by div to make a container -->
       <% robots.forEach((robot) => { %>
-      <li>
-        <p>Robot Name : <%= robot.robotName %> </p>
-        <p>Mobility: <%= robot.mobility %></p>
-        <p>Discription: <%= robot.discription %></p>
-        <p>Robot Image: </p>
-        <img src=<%= robot.robotImage %> alt="robot image">
+      <div class="robot-card">
+
+        <img src=<%= robot.robotImage %> alt="robot image" class="robot-image"/>
+
+        <h3 class="robotName"><%= robot.robotName %> </h3>
+        <p><strong>Mobility:</strong> <%= robot.mobility%></p>        
+        <p><strong>Discription:</strong> <%= robot.discription %></p>
+       <div class="robot-actions">  
+         <!--Edit and delet his robots-->      
         <a href="/robots/<%= robot._id %>/edit">Edit this robot</a>
         <form action="/robots/<%= robot._id %>?_method=DELETE" method="POST">
           <button type="submit">Delete this robot</button>
-      </li>
-      <% }) %>
-    </ul>
-    <!--Edit and delet his robots-->
-
-
-</form>
-
+         </form>
+      </div>
+  </div>
+  <%})%>
+</div>
   </body>
 </html>

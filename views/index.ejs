@@ -4,14 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  <title>Document</title>
+  <title>main index</title>
 </head>
 <body>
   <%- include('./partials/_navbar.ejs') %>
-  <h1>Welcome to the EcoGuard Robot Competition Registration!</h1>
-  <p>Register your eco-friendly robots by singing up and participate in the competition to showcase your innovations!</p>
-
-  <a href="/robots/yourRobots">My Robots</a>
-
+  
+   
+  <h1 > EcoGuard Robot Competition Registration!</h1>
+  <p >Register your eco-friendly robots by singing up and participate in the competition to showcase your innovations!</p>
+ 
+   <div class="auth-links">
+      <a class="signup-link" href="/auth/sign-up">Sign Up</a>
+      <a class="signin-link" href="/auth/sign-in">Sign In</a>
+   </div>
+    <!--<a href="/robots/yourRobots">My Robots</a> -->
+ 
 </body>
 </html>

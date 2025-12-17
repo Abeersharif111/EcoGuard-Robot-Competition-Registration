@@ -10,17 +10,19 @@
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>The robot <%= robot.robotName %> owned by <%= robot.owner.username %></h1>
-    <h2>Details</h2>
-    <p>Mobility: <%= robot.mobility %></p>
-    <p>Discription: <%= robot.discription %></p>
-    <p>Robot Image: </p>
-    <img src=<%= robot.robotImage %> alt="robor image">
+    <div class="winner-page">
+      
+    <h1>The robot <span class="bluetext"><%= robot.robotName %></span> owned by <span class="bluetext"><%= robot.owner.username %></span></h1>
+   <div class="robot-card">
+    <img src=<%= robot.robotImage %> alt="robor image" class="robot-image"/>
+    <p><strong> Mobility: </strong><%= robot.mobility %></p>
+    <p><strong> Discription: </strong><%= robot.discription %></p>
     
 <!-- views/robots/show.ejs -->
 
 <% if (robot.owner._id.equals(user._id)) { %>
 <p>You own this!</p>
+<div class="robot-actions"> 
 <a href="/robots/<%= robot._id %>/edit">Edit this robot</a>
 
 <form action="/robots/<%= robot._id %>?_method=DELETE" method="POST">
@@ -28,9 +30,10 @@
 
 
 </form>
+</div>  
 <%}%>
 <!-- Favorite Section -->
-<div >
+<div class="favorites-section">
           <p>Favorited by <%= robot.favoritedByUser.length %> people.</p>
 
           <% if (userHasFavorited) { %>
@@ -55,5 +58,7 @@
 
           <% } %>
         </div>
+      </div>
+    </div>
   </body>
 </html>

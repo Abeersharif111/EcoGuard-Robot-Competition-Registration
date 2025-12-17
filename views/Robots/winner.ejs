@@ -8,13 +8,18 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>  
-    <h1>Congratulations to the Winning Robot!</h1>
-    <p>The top robot until now is: <strong><%= topRobot.robotName %> Gain <%= maxFavorites %> Favorites </strong></p>
-    <p>Owned by: <strong><%= topRobot.owner.username %></strong></p>
-    <p>Mobility: <%= topRobot.mobility %></p>      
-    <p>Description: <%= topRobot.discription %></p>
-    <p>Robot Image:</p>
-    <img src="<%= topRobot.robotImage %>" alt="Robot Image">
+    <div class="winner-page">
+    <h1>🏆 Top Rating Robot!</h1>
+    <div class="robot-card winner-card">
+    <img src="<%= topRobot.robotImage %>" alt="Robot Image" class="robot-image">
 
+    <h3 class="robotName"><%= topRobot.robotName %></h3>
+    <p class="favorites"><strong><%= maxFavorites %></strong> Favorites</p>
+    <p><strong>Owner: <strong><%= topRobot.owner.username %></p>
+    <p><strong>Mobility: </strong><%= topRobot.mobility %></p>      
+    <p><strong>Description: </strong><%= topRobot.discription %></p>
+    
+    </div>  
+</div>
 </body>
 </html>

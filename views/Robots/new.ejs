@@ -8,9 +8,10 @@
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
+    <div class="form-page">
     <h1>Add a New Robot </h1>
 
-    <form action="/robots" method="POST">
+    <form action="/robots" method="POST" class="robot-form">
       <label for="robotName">Robot Name:</label>
       <input type="text" name="robotName" id="robotName" required/>
 
@@ -20,12 +21,13 @@
         <option value="Mobile">Mobile</option>
        </select> 
       <label for="discription">Discription:</label>
-      <input type="textarea" name="discription" id="discription" />
+      <textarea name="discription" id="discription" ></textarea>
 
       <label for="robotImage">Robot Image:</label>
       <input type="text" name="robotImage" id="robotImage" />
 
       <button type="submit">Add Robot</button>
     </form>
+    </div>  
   </body>
 </html>
