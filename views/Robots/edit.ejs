@@ -10,11 +10,12 @@
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
+    <div class="form-page">
     <h1>Edit a Robot!</h1>
 
     <!-- views/Robots/edit.ejs -->
     <p>Editing the robot <%= robot.robotName %> owned by <%= robot.owner.username %></p>
-<form action="/robots/<%= robot._id %>?_method=PUT" method="POST">
+ <form action="/robots/<%= robot._id %>?_method=PUT" method="POST" class="robot-form">
   <label for="robotName">Robot name:</label>
   <input
     type="text"
@@ -23,7 +24,12 @@
     value="<%= robot.robotName %>"
   />
   <label for="mobility">Mobility:</label>
-  <input type="text" name="mobility" id="mobility" value="<%= robot.mobility %>" />
+  <select name="mobility" id="mobility">
+        <option  value="Fixed" <%= robot.mobility %> >Fixed</option>
+        <option  value="Mobile" <%= robot.mobility %> >Mobile</option>
+       </select>
+
+
   <label for="discription">Discription:</label>
   <input
     type="textarea"
